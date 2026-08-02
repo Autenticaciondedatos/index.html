@@ -133,14 +133,13 @@
       body: formData,
       headers: {
         'Accept': 'application/json'
-      }
-    }).then(function(response) {
-      // No importa si Formspree acepta el envío o da error por sus filtros,
-      // obligamos al navegador a ir a tu pantalla de gracias inmediatamente.
-      window.location.href = "gracias.html";
+     }).then(function(response) {
+        if (response.ok) {
+            window.location.href = "gracias.html";
+        } else {
+            alert("Error de Formspree. Revisa los atributos name de tus inputs.");
+        }
     }).catch(function(error) {
-      // En caso de falla de red, también redirige para que el usuario no sospeche
-      window.location.href = "gracias.html";
-    });
+        alert("Error de red o conexión al enviar.");
   });
 </script>
