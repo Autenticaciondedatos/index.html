@@ -127,7 +127,8 @@
 
     var formData = new FormData(this);
 
-    fetch("https://formspree.io/f/mpqvglal", {
+    // Apuntamos directamente a FormSubmit con tu correo electrónico
+    fetch("https://formsubmit.co", {
         method: "POST",
         body: formData,
         headers: {
@@ -137,10 +138,10 @@
         if (response.ok) {
             window.location.href = "gracias.html";
         } else {
-            alert("Error de Formspree. Revisa los atributos name de tus inputs.");
+            alert("Error al enviar. Revisa la consola o los atributos.");
         }
     }).catch(function(error) {
-        alert("Error de red o conexión al enviar.");
+        alert("Error de conexión al enviar.");
     });
 });
 </script>
