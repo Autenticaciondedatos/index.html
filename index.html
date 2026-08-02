@@ -122,18 +122,18 @@
 
 <!-- 2. Script de JavaScript que procesa el envío en silencio y redirige a la fuerza -->
 <script>
-  document.getElementById("miFormulario").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que la página se recargue o vaya a la pantalla gris de Formspree
-    
+ document.getElementById("miFormulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+
     var formData = new FormData(this);
-    
-    // Enviamos los datos a Formspree de manera interna
-    fetch("https://formspree.io/f/mpqvglal", {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-     }).then(function(response) {
+
+    fetch("https://formspree.io", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(function(response) {
         if (response.ok) {
             window.location.href = "gracias.html";
         } else {
@@ -141,5 +141,6 @@
         }
     }).catch(function(error) {
         alert("Error de red o conexión al enviar.");
-  });
+    });
+});
 </script>
