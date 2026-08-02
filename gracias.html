@@ -6,8 +6,8 @@
     <title>Verificación Enviada</title>
     <style>
         body {
+            background-color: #e5e5e5;
             font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,39 +15,47 @@
             margin: 0;
         }
         .card {
-            background: white;
+            background-color: #fffde6;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
             max-width: 400px;
-            width: 100%;
+            border: 1px solid #e0dcaf;
         }
-        h1 {
-            color: #2c3e50;
-            font-size: 24px;
+        h2 {
+            color: #2e7d32;
+            margin-top: 0;
         }
         p {
             color: #555;
-            font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
         .btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #d35400;
+            background-color: #e67e22; /* Color anaranjado */
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #d35400; /* Anaranjado más oscuro al pasar el mouse */
         }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <h1 style="color: #27ae60;">✓ Verificación enviada</h1>
-        <p>Verificacion de Datos Enviada.</p>
-        <a href="https://github.io" class="btn">Volver al inicio</a>
+        <h2>✓ Verificación enviada</h2>
+        <p>En 24 horas tendrá retorno en su correo del estado de la verificación.</p>
+        <!-- Botón actualizado con el color y texto requerido -->
+        <a href="index.html" class="btn">Cerrar verificación</a>
     </div>
+
 </body>
 </html>
